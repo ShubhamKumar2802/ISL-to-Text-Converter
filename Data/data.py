@@ -1,6 +1,7 @@
 import os
 import cv2
 import numpy as np
+from keras.utils import to_categorical
 
 data = []
 target = []
@@ -49,4 +50,10 @@ for category in categories:
 
 data = np.array(data)
 target = np.array(target)
-print(data.shape)
+
+data_final = np.reshape(data, (data.shape[0], 100, 100, 1))
+targets_final = to_categorical(target)
+
+print(data_final.shape)
+print(targets_final.shape)
+
