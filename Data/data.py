@@ -3,9 +3,6 @@ import cv2
 import numpy as np
 from keras.utils import to_categorical
 
-data = []
-target = []
-
 data_path = "/Volumes/Samsung_T5/Data_Sets/isl_letters_dataset/ISL_Dataset"
 
 categories = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -36,24 +33,28 @@ def get_image_path(folder_path):
 # 3. resizing to (100px) x (100px)
 # 4. adding to data
 
-for category in categories:
-    folder_path = os.path.join(data_path, category)
-    img_folder = get_image_path(folder_path)
+def get_data_frame():
+    data = []
+    target = []
 
-    for image in img_folder:
-        img_path = os.path.join(folder_path, image)
-        img = cv2.imread(img_path)
-        img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        img_resized = cv2.resize(img_gray, (100, 100))
-        data.append(img_resized)
-        target.append(label_dict[category])
+    for category in categories:
+        folder_path = os.path.join(data_path, category)
+        img_folder = get_image_path(folder_path)
 
-data = np.array(data)
-target = np.array(target)
+        for image in img_folder:
+            img_path = os.path.join(folder_path, image)
+            img = cv2.imread(img_path)
+            img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img_resized = cv2.resize(img_gray, (100, 100))
+            data.append(img_resized)
+            target.append(label_dict[category])
 
-data_final = np.reshape(data, (data.shape[0], 100, 100, 1))
-targets_final = to_categorical(target)
+    data = np.array(data)
+    target = np.array(target)
 
-print(data_final.shape)
-print(targets_final.shape)
+    data_final = np.reshape(data, (data.shape[0], 100, 100, 1))
+    targets_final = to_categorical(target)
 
+    print(data_final.shape)
+    print(targets_final.shape)
+    return data_final, targets_final
