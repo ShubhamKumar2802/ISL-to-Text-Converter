@@ -60,4 +60,3 @@ targets_final = to_categorical(target)
 
 print(data_final.shape)
 print(targets_final.shape)
-
