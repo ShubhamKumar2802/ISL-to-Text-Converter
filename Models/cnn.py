@@ -20,11 +20,12 @@ model.add(Dropout(0.3))
 
 model.add(Dense(100, activation='relu'))
 model.add(Dense(50, activation='relu'))
-model.add(Dense(26, activation='softmax'))
+model.add(Dense(36, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 model.fit(train_data, train_target, epochs=10, validation_split=0.2)
-model.save("/Volumes/Samsung_T5/Data_Sets/isl_model_cnn/isl")
+# model.save("/Volumes/Samsung_T5/Data_Sets/isl_model_cnn/isl")
+model.save("C:\\Users\\Aniket\\Desktop\\MINI PROJECT")
 
 # print(data)
