@@ -30,9 +30,10 @@ def camera():
         # cv2.imshow('grayscale', grayFrame)
         dim = (100, 100)
         resized = cv2.resize(grayFrame, dim, interpolation=cv2.INTER_AREA)
+        print(type(resized))
         cv2.imshow('final resized', resized)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        # break
 
 # camera()    #if you need to run the code, unhash this
 
