@@ -43,6 +43,6 @@ while camera.isOpened():
     resized = resized.reshape(1, 100, 100, 1)
     prediction = np.argmax(model_cnn.predict(resized))
     print(prediction)
-    # cv2.imshow('final resized', resized)
+    # cv2.imshow('final re  sized', resized)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
