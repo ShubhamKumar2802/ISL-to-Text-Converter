@@ -5,7 +5,7 @@ import numpy as np
 
 # bg = None
 
-model_cnn = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\number_model")
+model_cnn = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\our_dataset_model")
 
 # def run_avg(image, aWeight):
 #     global bg
