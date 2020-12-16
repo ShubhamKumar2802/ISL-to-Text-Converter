@@ -28,10 +28,10 @@ labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
 label_dict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
               'a': 10, 'b': 11, 'c': 12, 'd': 13, 'e': 14, 'f': 15, 'g': 16, 'h': 17, 'i': 18, 'j': 19, 'k': 20, 'l': 21, 'm': 22,
               'n': 23, 'o': 24, 'p': 25, 'q': 26, 'r': 27, 's': 28, 't': 29, 'u': 30, 'v': 31, 'w': 32, 'x': 33, 'y': 34, 'z': 35}
+
 # label_dict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'a': 10, 'b': 11, 'c': 12,
 #              'd': 13, 'e': 14, 'f': 15, 'g': 16, 'i': 17, 'k': 18, 'l': 19, 'm': 20, 'n': 21, 'o': 22, 'p': 23,
 #              'q': 24, 'r': 25, 's': 26, 't': 27, 'u': 28, 'w': 29, 'x': 30, 'y': 31, 'z': 32}
-
 
 def get_image_path(folder_path):
     path = []
@@ -43,7 +43,6 @@ def get_image_path(folder_path):
         else:
             path.append(img_loc[len(img_loc) - 1])
     return path
-
 
 # 1. reading images
 # 2. converting to grayscale
@@ -74,7 +73,6 @@ targets_final = to_categorical(target)
 
 print(data_final.shape)
 print(targets_final.shape)
-
 
 def get_train_test_split():
     train_data, test_data, train_target, test_target = train_test_split(data_final, targets_final, test_size=0.2)

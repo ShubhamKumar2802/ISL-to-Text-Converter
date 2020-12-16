@@ -9,10 +9,3 @@ score = model.evaluate(test_data, test_target)
 print(score)
 report = classification_report(test_target, predictions.round())
 print(report)
-
-# for i in range(len(test_data)):
-#   print(f'index = {i}')
-#   print(f'test_target data: {np.argmax(test_target[i])}')
-#   print(f'Predicted value: {np.argmax(predictions[i])}')
-#   print('--------------------------------')
-#   print()

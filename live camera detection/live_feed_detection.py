@@ -3,29 +3,7 @@ import imutils
 import keras
 import numpy as np
 
-# bg = None
-
-model_cnn = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\our_dataset_model")
-
-# def run_avg(image, aWeight):
-#     global bg
-#     if bg is None:
-#         bg = image.copy().astype("float")
-#         return
-#
-#     cv2.accumulateWeighted(image, bg, aWeight)
-#
-#
-# def segment(image, threshold=25):
-#     global bg
-#     diff = cv2.absdiff(bg.astype("uint8"), image)
-#     thresholded = cv2.threshold(diff, threshold, 255, cv2.THRESH_BINARY)[1]
-#     cnts, _ = cv2.findContours(thresholded.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-#     if len(cnts) == 0:
-#         return
-#     else:
-#         segmented = max(cnts, key=cv2.contourArea)
-#         return (thresholded, segmented)
+model_cnn = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\our_dataset_new_model")
 
 background = None
 accumulated_weight = 0.5
@@ -35,7 +13,6 @@ bottom = 300
 right = 450
 left = 680
 
-
 def run_avg(frame, accumulated_weight):
     global background
 
@@ -44,7 +21,6 @@ def run_avg(frame, accumulated_weight):
         return None
 
     cv2.accumulateWeighted(frame, background, accumulated_weight)
-
 
 def segment(frame, threshold=25):
     global background
@@ -65,7 +41,6 @@ def segment(frame, threshold=25):
 
         # Returning the hand segment(max contour) and the thresholded image of hand...
         return (thresholded, hand_segment_max_cont)
-
 
 if __name__ == "__main__":
     aWeight = 0.5

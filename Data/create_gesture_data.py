@@ -9,7 +9,6 @@ ROI_bottom = 300
 ROI_right = 400
 ROI_left = 630
 
-
 def cal_accum_avg(frame, accumulated_weight):
     global background
 
@@ -18,7 +17,6 @@ def cal_accum_avg(frame, accumulated_weight):
         return None
 
     cv2.accumulateWeighted(frame, background, accumulated_weight)
-
 
 def segment_hand(frame, threshold=25):
     global background
@@ -37,7 +35,6 @@ def segment_hand(frame, threshold=25):
         hand_segment_max_cont = max(contours, key=cv2.contourArea)
 
         return (thresholded, hand_segment_max_cont)
-
 
 cam = cv2.VideoCapture(0)
 
