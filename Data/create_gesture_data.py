@@ -97,7 +97,6 @@ while True:
             cv2.drawContours(frame_copy, [hand_segment + (ROI_right, ROI_top)], -1, (255, 0, 0), 1)
 
             cv2.putText(frame_copy, str(num_frames), (70, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-            # cv2.putText(frame_copy, str(num_frames)+"For" + str(element), (70, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
             cv2.putText(frame_copy, str(num_imgs_taken) + 'images' + "For" + str(element), (200, 400),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
