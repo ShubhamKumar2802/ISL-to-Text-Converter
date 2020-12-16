@@ -103,8 +103,7 @@ while True:
             # Displaying the thresholded image
             cv2.imshow("Thresholded Hand Image", thresholded)
             if num_imgs_taken <= 300:
-                # cv2.imwrite(r"D:\\gesture\\train\\"+str(element)+"\\" + str(num_imgs_taken+300) + '.jpg', thresholded)
-                cv2.imwrite(r"C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\dataset\\self made dataset\\g" + "\\" + str(
+                cv2.imwrite(r"C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\dataset\\self made dataset\\o" + "\\" + str(
                     num_imgs_taken) + '.jpg', thresholded)
             else:
                 break
