@@ -9,7 +9,7 @@ target = []
 bgSubThreshold = 100
 
 # data_path = "/Volumes/Samsung_T5/Data_Sets/isl_letters_dataset/ISL_Dataset"
-data_path = "C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\dataset\\self made dataset"
+data_path = "C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\dataset\\ISL self made dataset"
 
 categories = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
               'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -61,5 +61,5 @@ print(data_final.shape)
 print(targets_final.shape)
 
 def get_train_test_split():
-    train_data, test_data, train_target, test_target = train_test_split(data_final, targets_final, test_size=0.2)
+    train_data, test_data, train_target, test_target = train_test_split(data_final, targets_final, test_size=0.4, random_state=101)
     return train_data, test_data, train_target, test_target
