@@ -45,7 +45,6 @@ def segment(frame, threshold=25):
 if __name__ == "__main__":
     aWeight = 0.5
     camera = cv2.VideoCapture(0)
-    # top, right, bottom, left = 10, 450, 300, 700
     num_frames = 0
     while (True):
         (grabbed, frame) = camera.read()
@@ -64,13 +63,10 @@ if __name__ == "__main__":
                 (thresholded, segmented) = hand
                 cv2.drawContours(clone, [segmented + (right, top)], -1, (255, 0, 0), 1)
                 cv2.imshow("Thresholded", thresholded)
-                # thresholded_resized = thresholded.reshape(100, 100)
                 thresholded_resized = cv2.resize(thresholded, (100, 100))
                 thresholded_resized = thresholded_resized.reshape(1, 100, 100, 1)
-                # thresholded_final = cv2.cvtColor(thresholded_resized, cv2.COLOR_BGR2GRAY)
                 prediction = np.argmax(model_cnn.predict(thresholded_resized))
                 print(prediction)
-                # print(type(thresholded))
         cv2.rectangle(clone, (left, top), (right, bottom), (255, 128, 0), 3)
         num_frames += 1
         cv2.imshow("Video Feed", clone)

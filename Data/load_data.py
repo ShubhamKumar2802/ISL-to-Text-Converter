@@ -9,29 +9,18 @@ target = []
 bgSubThreshold = 100
 
 # data_path = "/Volumes/Samsung_T5/Data_Sets/isl_letters_dataset/ISL_Dataset"
-# data_path = "C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\dataset\\ISL_Dataset"
-# data_path = "C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\dataset\\ISL DATASET - NEW"
 data_path = "C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\dataset\\self made dataset"
 
 categories = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
               'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
               'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-# categories = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-#               'a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'k', 'l', 'm',
-#               'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z']
 
 labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
           20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
-# labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-#          20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 
 label_dict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
               'a': 10, 'b': 11, 'c': 12, 'd': 13, 'e': 14, 'f': 15, 'g': 16, 'h': 17, 'i': 18, 'j': 19, 'k': 20, 'l': 21, 'm': 22,
               'n': 23, 'o': 24, 'p': 25, 'q': 26, 'r': 27, 's': 28, 't': 29, 'u': 30, 'v': 31, 'w': 32, 'x': 33, 'y': 34, 'z': 35}
-
-# label_dict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'a': 10, 'b': 11, 'c': 12,
-#              'd': 13, 'e': 14, 'f': 15, 'g': 16, 'i': 17, 'k': 18, 'l': 19, 'm': 20, 'n': 21, 'o': 22, 'p': 23,
-#              'q': 24, 'r': 25, 's': 26, 't': 27, 'u': 28, 'w': 29, 'x': 30, 'y': 31, 'z': 32}
 
 def get_image_path(folder_path):
     path = []
@@ -57,9 +46,6 @@ for category in categories:
         img_path = os.path.join(folder_path, image)
         print(img_path)
         img = cv2.imread(img_path)
-        # bgModel = cv2.BackgroundSubtractorMOG2(0, bgSubThreshold)
-        # fgmask = bgModel.apply(img)
-        # res = cv2.bitwise_and(img, img, mask=fgmask)
         img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         img_resized = cv2.resize(img_gray, (100, 100))
         data.append(img_resized)

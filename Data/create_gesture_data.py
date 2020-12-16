@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 
 background = None
 accumulated_weight = 0.5
