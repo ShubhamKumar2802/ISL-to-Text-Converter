@@ -61,5 +61,5 @@ print(data_final.shape)
 print(targets_final.shape)
 
 def get_train_test_split():
-    train_data, test_data, train_target, test_target = train_test_split(data_final, targets_final, test_size=0.4, random_state=101)
+    train_data, test_data, train_target, test_target = train_test_split(data_final, targets_final, test_size=0.3, random_state=36)
     return train_data, test_data, train_target, test_target

@@ -27,9 +27,9 @@ model.compile(optimizer=Adam(learning_rate=0.00001), loss='categorical_crossentr
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=1, min_lr=0.0005)
 early_stop = EarlyStopping(monitor='val_loss', min_delta=0, patience=2, verbose=0, mode='auto')
 
-history = model.fit(train_data, train_target, epochs=15, callbacks=[reduce_lr, early_stop], validation_split=0.2)
+history = model.fit(train_data, train_target, epochs=15, callbacks=[reduce_lr, early_stop], validation_split=0.3)
 model.save("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\our_dataset_new_model")
 print(model.summary())
 
 model.test_on_batch(test_data, test_target)
-model.metrics_names
+print(model.metrics_names)
