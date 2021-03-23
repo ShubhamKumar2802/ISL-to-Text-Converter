@@ -1,10 +1,8 @@
 import numpy as np
 import cv2
 import keras
-from keras.preprocessing.image import ImageDataGenerator
-import tensorflow as tf
 
-model = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\number_model")
+model = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\our_dataset_new_model")
 
 background = None
 accumulated_weight = 0.5
@@ -14,6 +12,9 @@ ROI_bottom = 300
 ROI_right = 400
 ROI_left = 630
 
+label_dict = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9',
+              10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f', 16: 'g', 17: 'h', 18: 'i', 19: 'j', 20: 'k', 21: 'l', 22: 'm',
+              23: 'n', 24: 'o', 25: 'p', 26: 'q', 27: 'r', 28: 's', 29: 't', 30: 'u', 31: 'v', 32: 'w', 33: 'x', 34: 'y', 35: 'z'}
 
 def cal_accum_avg(frame, accumulated_weight):
     global background
@@ -51,7 +52,7 @@ num_frames = 0
 while True:
     ret, frame = cam.read()
 
-    # filpping the frame to prevent inverted image of captured frame...
+    # flipping the frame to prevent inverted image of captured frame...
     frame = cv2.flip(frame, 1)
 
     frame_copy = frame.copy()
@@ -66,8 +67,8 @@ while True:
 
         cal_accum_avg(gray_frame, accumulated_weight)
 
-        cv2.putText(frame_copy, "FETCHING BACKGROUND...PLEASE WAIT", (80, 400), cv2.FONT_HERSHEY_SIMPLEX, 0.9,
-                    (0, 0, 255), 2)
+        cv2.putText(frame_copy, "PLEASE WAIT", (80, 400), cv2.FONT_HERSHEY_SIMPLEX, 0.9,
+                    (0, 255, 0), 2)
 
     else:
         # segmenting the hand region
@@ -80,14 +81,14 @@ while True:
             # Drawing contours around hand segment
             cv2.drawContours(frame_copy, [hand_segment + (ROI_right, ROI_top)], -1, (255, 0, 0), 1)
 
-            cv2.imshow("Thesholded Hand Image", thresholded)
+            cv2.imshow("Threshold Hand Image", thresholded)
 
             thresholded = cv2.resize(thresholded, (100, 100))
-            thresholded = cv2.cvtColor(thresholded, cv2.COLOR_GRAY2RGB)
+            # thresholded = cv2.cvtColor(thresholded, cv2.COLOR_GRAY2RGB)
             thresholded = thresholded.reshape(1, 100, 100, 1)
 
             pred = model.predict(thresholded)
-            cv2.putText(frame_copy, word_dict[np.argmax(pred)], (170, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+            cv2.putText(frame_copy, label_dict[np.argmax(pred)], (170, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     # Draw ROI on frame_copy
     cv2.rectangle(frame_copy, (ROI_left, ROI_top), (ROI_right, ROI_bottom), (255, 128, 0), 3)
@@ -96,7 +97,7 @@ while True:
     num_frames += 1
 
     # Display the frame with segmented hand
-    cv2.putText(frame_copy, "DataFlair hand sign recognition_ _ _", (10, 20), cv2.FONT_ITALIC, 0.5, (51, 255, 51), 1)
+    cv2.putText(frame_copy, "Live feed hand gesture recognition", (10, 20), cv2.FONT_ITALIC, 0.6, (51, 255, 51), 1)
     cv2.imshow("Sign Detection", frame_copy)
 
     # Close windows with Esc

@@ -13,6 +13,11 @@ bottom = 300
 right = 450
 left = 680
 
+label_dict = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9',
+              10: 'a', 11: 'b', 12: 'c', 13: 'd', 14: 'e', 15: 'f', 16: 'g', 17: 'h', 18: 'i', 19: 'j', 20: 'k', 21: 'l', 22: 'm',
+              23: 'n', 24: 'o', 25: 'p', 26: 'q', 27: 'r', 28: 's', 29: 't', 30: 'u', 31: 'v', 32: 'w', 33: 'x', 34: 'y', 35: 'z'}
+
+
 def run_avg(frame, accumulated_weight):
     global background
 
@@ -62,11 +67,12 @@ if __name__ == "__main__":
             if hand is not None:
                 (thresholded, segmented) = hand
                 cv2.drawContours(clone, [segmented + (right, top)], -1, (255, 0, 0), 1)
-                cv2.imshow("Thresholded", thresholded)
+                cv2.imshow("Threshold Hand Image", thresholded)
                 thresholded_resized = cv2.resize(thresholded, (100, 100))
                 thresholded_resized = thresholded_resized.reshape(1, 100, 100, 1)
                 prediction = np.argmax(model_cnn.predict(thresholded_resized))
                 print(prediction)
+                cv2.putText(clone, label_dict[np.argmax(prediction)], (170, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         cv2.rectangle(clone, (left, top), (right, bottom), (255, 128, 0), 3)
         num_frames += 1
         cv2.imshow("Video Feed", clone)
