@@ -1,8 +1,8 @@
 from Data.load_data import get_train_test_split
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPool2D, Flatten, Dropout, Dense
-from keras.optimizers import Adam
-from keras.callbacks import ReduceLROnPlateau, EarlyStopping
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPool2D, Flatten, Dropout, Dense
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import ReduceLROnPlateau, EarlyStopping
 
 train_data, test_data, train_target, test_target = get_train_test_split()
 

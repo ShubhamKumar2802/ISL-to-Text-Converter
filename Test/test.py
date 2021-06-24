@@ -1,6 +1,6 @@
 from Data.load_data import get_train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
-import keras
+from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns

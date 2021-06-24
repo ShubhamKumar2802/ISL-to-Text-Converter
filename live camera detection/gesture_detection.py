@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import keras
+from tensorflow import keras
 
 model = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\our_dataset_new_model")
 
