@@ -1,6 +1,6 @@
 import cv2
 import imutils
-import keras
+from tensorflow import keras
 import numpy as np
 
 model_cnn = keras.models.load_model("C:\\Users\\Aniket\\Desktop\\MINI PROJECT\\our_dataset_new_model")
