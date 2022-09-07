@@ -1,5 +1,5 @@
 # ISL-to-Text-Converter  
-**NOTE:- Please cite the following paper if you find this code useful in your research:**  
+**NOTE:- Please cite the following paper if you find this project useful in your research:**  
 *https://ieeexplore.ieee.org/document/9566005*
 
 Communication is a basic requirement of an individual to exchange feelings, thoughts, and ideas, but the hearing and speech impaired community finds it difficult to interact with the vast majority of people. Sign language facilitates communication between the hearing and speech impaired person and the rest of society. The Rights of Persons with Disabilities (*RPWD*) Act, 2016, was also passed by the Indian government, which acknowledges Indian Sign Language (*ISL*) and mandates the use of sign language interpreters in all government-aided organizations and the public sector proceedings. Unfortunately, a large percentage of the Indian population is not familiar with the semantics of the gestures associated with ISL.  
